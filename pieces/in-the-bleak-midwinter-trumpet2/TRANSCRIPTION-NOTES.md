@@ -37,6 +37,6 @@
   - I kept the "4" exactly as printed, and offset the first bar so the displayed numbers match the page. If the rest should really be 3 bars, delete one bar at the start and remove the offset.
 - **Bar 56:** reads as G5 (half), then F♯5 (eighth), D5 D5 (16ths), D5 D5 (eighths). The repeated D5s were checked with a zoomed crop and all sit on the D line.
 - **Bar 55:** a run of eighths, G4 F♯4 G4 A4 | B4 C5, then D5 (quarter). Clearly printed.
-- **Slurs:** I read the F♯4→G4 arcs in bars 18, 20, 54 and 71 and the G4→F♯4 arcs in bars 14 and 66 as slurs, because they join different pitches.
+- **Slurs:** I read the F♯4→G4 arcs in bars 18, 20, 54 and 71 and the G4→F♯4 arcs in bars 14 and 67 as slurs, because they join different pitches.
 - **F naturals:** bars 12, 48 and 65 have a printed natural on F4, as on the page.
 - **Shadows:** a hand or phone shadow covers parts of systems 3–8, but every note was still readable.
