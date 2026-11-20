@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render each repertoire MusicXML through MuseScore's bundled trumpet sound."""
+"""Render repertoire MusicXML through MuseScore's bundled instrument sounds."""
 import argparse
 import json
 import os
@@ -14,6 +14,9 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    sources = sorted((ROOT / 'pieces').glob('*/*.musicxml'))
+    parser.add_argument('--piece', choices=[p.parent.name for p in sources],
+                        help='Render only this piece (default: all pieces)')
     parser.add_argument('--musescore', default='musescore', help='MuseScore Studio executable')
     parser.add_argument('--ffmpeg', default='ffmpeg', help='FFmpeg executable with libmp3lame')
     parser.add_argument('--diagnostics', type=Path, help='Keep WAVs, MIDI, imported scores and logs here')
@@ -36,13 +39,15 @@ def main():
                    QT_QPA_PLATFORM=os.environ.get('QT_QPA_PLATFORM', 'offscreen'))
         diagnostics = args.diagnostics.resolve() if args.diagnostics else Path(temporary)
         diagnostics.mkdir(parents=True, exist_ok=True)
-        for source in sorted((ROOT / 'pieces').glob('*/*.musicxml')):
+        for source in sources:
+            if args.piece and source.parent.name != args.piece:
+                continue
             destination = source.parent / 'audio' / (source.stem + '.mp3')
             destination.parent.mkdir(exist_ok=True)
             # Export atomically, leaving an existing recording intact on failure.
             rendered = diagnostics / (source.stem + '.mp3')
             # MuseScore enables chord-symbol accompaniment on MusicXML import.
-            # These are solo trumpet recordings: omit harmony symbols only in
+            # Preserve the notated instrumental tracks; omit harmony symbols in
             # the temporary playback copy; keep all notes and score sources intact.
             playback = diagnostics / (source.stem + '.musicxml')
             tree = ET.parse(source)
