@@ -1,5 +1,13 @@
 # Feliz Navidad (Kacey Musgraves version, arr. Daryl McKenzie): Trumpet 2 in B♭ transcription notes
 
+> **Current edition:** Daniel requested removal of pages 3 and 4 of the
+> two-track MuseScore score. The editable files now retain **bars 1–50**;
+> the full score is two pages, the regenerated Trumpet 2 PDF is one page,
+> and the audio is approximately **1:47**. Historical source/transcription
+> facts below describe the original 96-bar transcription. See
+> [the cut and verification](../../docs/feliz-navidad-duration.md).
+
+
 ## Source
 - Two phone photos of the printed part: `trumpet2-page1.jpg` and `trumpet2-page2.jpg` (1536×2048 each).
 - Page 1 covers bars 1–50 and page 2 covers bars 51–96, with 9 systems on each page.
@@ -42,6 +50,7 @@
 ## Editorial choices
 - The Sheet Music Plus purchase stamp and watermark are left out. The copyright notice is kept as the page footer.
 - The spelling "Accordian" is kept as printed.
-- Hand-clap bars use x noteheads on C5, the space where they are printed. They play back as pitched notes in MuseScore.
+- Hand-clap bars retain their original cross noteheads and repeat signs in the Trumpet 2 part. These cues have trumpet playback disabled. A separate **Hand claps (snare)** percussion track now plays the rhythm using General MIDI acoustic snare (note 38, channel 10). The Trumpet 2 PDF has been regenerated for the retained bars 1–50.
+- In MusicXML the trumpet clap notes are silent `<cue/>` notes; MuseScore may display imported cues smaller. The native `.mscz` preserves the original full-size cue layout. See [percussion playback and verification](../../docs/feliz-navidad-percussion.md).
 - Chord symbols in section I (Bm7, E, A, F♯m, Bm, E, A, F♯m, A, F♯m) are written-pitch names, as printed.
 - Small layout differences remain: slur curvature, tuplet bracket length, and exact spacing within each system. In bar 6 the slur from bar 6 to bar 8 passes over the triplet bracket. In the original the slur clears the bracket.
