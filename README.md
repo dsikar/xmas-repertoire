@@ -1,6 +1,6 @@
 # xmas-repertoire
 
-Christmas repertoire scores (MuseScore + PDF), with solo trumpet practice audio.
+Christmas repertoire scores (MuseScore + PDF), with trumpet practice audio.
 
 | Piece | MP3 | Duration | Playback tempo |
 | --- | --- | --- | --- |
@@ -10,6 +10,7 @@ Christmas repertoire scores (MuseScore + PDF), with solo trumpet practice audio.
 
 The recordings play at sounding pitch for B♭ trumpet. Written rests are retained,
 including about 10.43 seconds of silence at the start of *In the Bleak Mid-Winter*.
+Feliz Navidad includes a separate snare track for the hand-clap passages.
 There is no count-in, metronome, or chord-symbol accompaniment.
 
 See [audio generation and verification](docs/audio-generation.md) for regeneration

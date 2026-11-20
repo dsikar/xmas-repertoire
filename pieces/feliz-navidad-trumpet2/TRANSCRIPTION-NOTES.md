@@ -42,6 +42,7 @@
 ## Editorial choices
 - The Sheet Music Plus purchase stamp and watermark are left out. The copyright notice is kept as the page footer.
 - The spelling "Accordian" is kept as printed.
-- Hand-clap bars use x noteheads on C5, the space where they are printed. They play back as pitched notes in MuseScore.
+- Hand-clap bars retain their original cross noteheads and repeat signs in the Trumpet 2 part. These cues have trumpet playback disabled. A separate **Hand claps (snare)** percussion track now plays the rhythm using General MIDI acoustic snare (note 38, channel 10). The existing Trumpet 2 PDF is unchanged because its notation is unchanged.
+- In MusicXML the trumpet clap notes are silent `<cue/>` notes; MuseScore may display imported cues smaller. The native `.mscz` preserves the original full-size cue layout. See [percussion playback and verification](../../docs/feliz-navidad-percussion.md).
 - Chord symbols in section I (Bm7, E, A, F♯m, Bm, E, A, F♯m, A, F♯m) are written-pitch names, as printed.
 - Small layout differences remain: slur curvature, tuplet bracket length, and exact spacing within each system. In bar 6 the slur from bar 6 to bar 8 passes over the triplet bracket. In the original the slur clears the bracket.
