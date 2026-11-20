@@ -63,11 +63,12 @@ The renderer leaves the tracked score sources and PDFs untouched.
 - All three MusicXML files specify a chromatic transposition of −2 semitones.
   The recordings use that sounding pitch. Joy to the World's B♭ instrumentation
   remains the inference documented in its transcription notes.
-- **Feliz Navidad:** ♩ = 132. Both repeated sections, alternate endings, and
-  one-bar repeat signs are played. The 96 written bars expand to 109 played
-  bars (436 quarter-note beats). The six unslashed grace notes are audible in
-  the audio, although MuseScore's MIDI export omits them; MIDI alone cannot
-  validate those ornaments.
+- **Feliz Navidad:** ♩ = 132. At Daniel's request, pages 3–4 of the native
+  score were removed, retaining bars 1–50. The remaining section repeat,
+  alternate endings, and one-bar repeat signs are played: 50 written bars
+  become 57 played bars (228 quarter-note beats). The four retained grace
+  notes play in audio but are omitted by MuseScore's MIDI diagnostics. See
+  [the page cut and duration check](feliz-navidad-duration.md).
 - **Joy to the World:** no metronome mark is encoded. MuseScore uses ♩ = 120;
   this is a practice playback choice, not a recovered source marking.
 - **In the Bleak Mid-Winter:** ♩ = 92. The opening four-bar rest and all later
@@ -92,7 +93,7 @@ include the final notes and a roughly three-second export tail.
 
 | Piece | Decoded duration | Decoded peak (full scale = 1) | First audible sound | MIDI note attacks checked |
 | --- | ---: | ---: | ---: | ---: |
-| Feliz Navidad | 201.181 s | 0.537 | 0.684 s | 205 trumpet attacks + 249 snare hits; six trumpet ornaments checked in the WAV |
+| Feliz Navidad | 106.636 s | 0.495 | 0.684 s | 117 trumpet attacks + 170 snare hits; four retained trumpet ornaments |
 | Joy to the World | 87.000 s | 0.639 | 0.002 s | 118 |
 | In the Bleak Mid-Winter | 193.434 s | 0.207 | 10.439 s | 148 |
 
@@ -104,7 +105,7 @@ shifts were MuseScore's expected grace-note timing. No extra chord accompaniment
 maps confirmed 132, 120, and 92 respectively; changing velocities in Feliz
 Navidad and Joy to the World confirmed dynamic playback.
 
-The sounding E4–F♯4–G4 contours around all three grace-note pairs in Feliz
+The sounding E4–F♯4–G4 contours around the retained grace-note pairs in Feliz
 Navidad were checked in the WAV using short-window autocorrelation. This
 checks the audio independently of MuseScore's incomplete MIDI grace export.
 
@@ -118,7 +119,7 @@ done
 
 **Manual listening sign-off is pending.** Automated note and signal checks do
 not replace a full human listen-through. Before accepting issue #10, listen to
-all three MP3s against their scores, including the two repeat sections and
+all three MP3s against their scores, including the retained repeat section and
 alternate endings in Feliz Navidad, the long rests in the other pieces, and
 each ending. Confirm that the documented constant tempos and timbre limitations
 are suitable for practice.

@@ -1,82 +1,57 @@
 # Feliz Navidad: hand-clap percussion
 
-Implements the score and audio changes for
-[issue #12](https://github.com/dsikar/xmas-repertoire/issues/12).
+Adds the separate snare track requested in
+[issue #12](https://github.com/dsikar/xmas-repertoire/issues/12), with the later
+[page cut for #14](feliz-navidad-duration.md) applied.
 
 ## Editable tracks and playback
 
-Open `pieces/feliz-navidad-trumpet2/feliz-navidad-trumpet2-bb.mscz` in MuseScore.
-It contains the original **Trumpet 2 in B♭** part and a separate one-line
-**Hand claps (snare)** percussion part. Each track can be edited or muted
-independently in MuseScore. The matching MusicXML contains the same two parts.
+`pieces/feliz-navidad-trumpet2/feliz-navidad-trumpet2-bb.mscz` and its matching
+MusicXML contain **Trumpet 2 in B♭** and a separate one-line **Hand claps (snare)**
+part. Each can be edited or muted independently in MuseScore.
 
-The percussion uses an **acoustic snare**, General MIDI note **38** on channel
-**10**, with the bundled MuseScore Basic soundfont. The clap passages retain their
-inherited `f` dynamic; a 65% percussion instrument volume balances the snare
-against the trumpet. Snare is the requested
-substitute for clapping; this is not an added drum groove.
+The sound is acoustic snare, General MIDI note **38** on channel **10**, using
+MuseScore Basic. The claps retain their inherited `f` dynamic with 65% percussion
+instrument volume. The snare follows the hand-clap notation rather than adding
+a drum groove.
 
-The original photos confirm hand-clap passages in **bars 10–18, 27–40, and
-51–64**, including the single clap followed by rests in bars 17, 18, and 58.
-The percussion follows exactly those rhythms, the one-bar repeat signs, and
-the first and second endings. It rests everywhere else.
+The current edition retains bars **1–50**. Its clap passages are **10–18 and
+27–40**, including the single claps followed by rests in bars 17 and 18.
+The percussion follows the one-bar repeat signs and alternate endings and
+rests everywhere else. Bars 51–96 were removed at Daniel's request.
 
-The trumpet part keeps its printed cross noteheads, text cues, and repeat
-signs. In the native project only the clap notes' playback is disabled. In
-MusicXML those notes use standard `<cue/>` elements, which MuseScore imports
-as silent cues. MuseScore may make those imported cues smaller; use the native
-project for the preserved original full-size layout. Genuine trumpet notes,
-rests, dynamics, tempo, transposition, slurs, and the existing part PDF are
-unchanged. Chord-symbol playback is disabled in the native project and remains
-suppressed by the audio export script.
+The trumpet keeps its printed cross noteheads, text cues, and repeat signs,
+with clap playback disabled. MusicXML uses silent `<cue/>` notes; MuseScore may
+make imported cues smaller. Use the native project for the original full-size
+cue layout. Genuine trumpet notes, dynamics, tempo, transposition and slurs in
+the retained bars are preserved. Chord-symbol playback is disabled in the native
+project and suppressed by the exporter. The shortened trumpet-only PDF has
+been regenerated separately from the two-staff full score.
 
-The existing MP3 now mixes trumpet and snare:
+[Play / download the mixed MP3](../pieces/feliz-navidad-trumpet2/audio/feliz-navidad-trumpet2-bb.mp3)
 
-[Play / download Feliz Navidad](../pieces/feliz-navidad-trumpet2/audio/feliz-navidad-trumpet2-bb.mp3)
-
-## Regeneration
+## Regeneration and checks
 
 ```sh
 python3 scripts/render-audio.py --piece feliz-navidad-trumpet2
 ```
 
-The exporter preserves both instrumental parts, uses isolated settings with no
-metronome, and encodes a 192 kbit/s MP3 with −6 dB gain before encoding. It does
-not rebuild the percussion track: edits should be made in the two-part score
-and kept in sync between `.mscz` and `.musicxml`. See
-[audio generation](audio-generation.md) for prerequisites and diagnostic exports.
+The script preserves the instrumental tracks, disables the metronome, and
+encodes a 192 kbit/s MP3 after applying −6 dB gain. Keep edits synchronized
+between the native score and MusicXML. See [audio generation](audio-generation.md)
+for prerequisites and diagnostic exports.
 
-## Verification on 20 November 2026
+Both current score formats play **117 ordinary trumpet attacks and 170 snare
+hits** over **57 played bars**. The pitches, onsets and velocities match the
+retained portion of the previous edition exactly. No clap attacks remain on
+the trumpet channel and no chord accompaniment notes are added. The four
+remaining grace notes are preserved in both scores; MuseScore's MIDI diagnostics
+omit those ornaments.
 
-- Both files contain two independently editable parts with 96 bars each. Every
-  MusicXML part's bar sums to 4/4.
-- The MusicXML trumpet part matches its previous version after removing only
-  the added cue markers. The native trumpet staff matches its previous version
-  after removing only the new playback-disable flags, preserving its layout.
-- The 207 percussion events encoded in MusicXML expand to **249 snare hits** over the full
-  repeat sequence. Every hit matches the original clap's beat exactly in both
-  native-project and MusicXML MIDI exports. All percussion hits use note 38 on
-  channel 10; no other percussion notes or extra accompaniment notes occur.
-- Both MIDI exports contain **205 ordinary trumpet attacks**. Pitches and order
-  match the original melody, with no clap attacks left on the trumpet channel.
-  The native project's melodic attack times and velocities match the original
-  native project exactly. MuseScore's existing MIDI grace-note omission remains;
-  the six grace notes are retained in both scores and in audio playback.
-- Both formats retain ♩ = 132 and both repeat sections. The MusicXML playback
-  covers **109 played bars / 436 quarter-note beats**. The native MIDI exporter
-  ends its track after the last sounding note rather than padding the final bar.
-- The updated native full score was rendered and its first page inspected: the
-  snare has a separate staff and the original trumpet cues remain visible.
-  The existing two-page trumpet-only PDF was retained because its notation did
-  not change.
-- The complete MP3 decodes without errors: **201.181 seconds**, peak **0.537**
-  of full scale, first sound at **0.684 seconds**, last sound at **199.079
-  seconds**. The source 44.1 kHz stereo float WAV peaks below full scale.
-  The first snare hit was checked for a broadband transient; the opening
-  trumpet rest and final audio tail remain intact.
+The full MP3 decodes without errors and lasts **106.636 seconds**, with peak
+**0.495** of full scale. See [the duration checks](feliz-navidad-duration.md)
+for the score-page boundary and ending verification.
 
-**Full human listening sign-off is pending.** Before accepting the ticket,
-listen through the mixed MP3, especially the transitions at bars 10, 19, 27,
-41, 51, 59, and 65 and the first repeat's alternate endings. Confirm that the
-snare balance and articulation make suitable practice cues. Automated score,
-MIDI, layout, and signal checks do not replace this listening step.
+**Full human listening sign-off remains pending.** Check the trumpet/snare
+transitions at bars 10, 19, 27 and 41, the alternate endings, and the new ending
+at bar 50. Automated checks do not replace that listening step.
