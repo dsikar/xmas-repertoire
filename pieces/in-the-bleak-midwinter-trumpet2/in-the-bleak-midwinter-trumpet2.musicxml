@@ -94,7 +94,6 @@
         <display-text>Trumpet 2 in B</display-text>
         <accidental-text>flat</accidental-text>
         </part-name-display>
-      <part-abbreviation print-object="no">Tpt. 2</part-abbreviation>
       <score-instrument id="P1-I1">
         <instrument-name>B♭ Trumpet</instrument-name>
         <instrument-sound>brass.trumpet.bflat</instrument-sound>
